@@ -23,7 +23,7 @@ function MyTabs() {
 function MyStack() {
   return (
     <Stack.Navigator>
-    <Stack.Screen name="Shopping List" component={CurrentList} />
+    <Stack.Screen name="Tabs?" component={MyTabs} />
     </Stack.Navigator>
   )
   
@@ -32,7 +32,7 @@ function MyStack() {
 export default function Nav() {
   return (
     <NavigationContainer>
-      <MyTabs />
+      <MyStack />
     </NavigationContainer>
   );
 }
