@@ -4,7 +4,7 @@ import { View, Text, SafeAreaView, FlatList, KeyboardAvoidingView, ActivityIndic
 export default () => {
     return (
         <View>
-            <Text>something</Text>
+            <Text>something about favorites</Text>
         </View>
     )
 };
