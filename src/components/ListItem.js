@@ -95,6 +95,7 @@ const Listitem = ({ name, onFavoritePress, isFavorite, onAddedSwipe, onDeleteSwi
         });
     }
 
+
     return (
         <Swipeable
             renderLeftActions={onAddedSwipe && LeftActions}

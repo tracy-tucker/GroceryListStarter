@@ -5,40 +5,75 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import CurrentList from '../screens/CurrentList';
-// import ItemDetails from '../screens/ItemDetails';
+import ItemDetails from '../screens/ItemDetails';
 import FavoritesList from '../screens/FavoritesList';
 
 const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
 
-function MyTabs() {
+function MyStack() {
   return (
-    <Tabs.Navigator>
-    <Tabs.Screen name="Shopping List" component={CurrentList} />
-    <Tabs.Screen name="Favorites List" component={FavoritesList} />
-  </Tabs.Navigator>
+    <Stack.Navigator initialRouteName="Shopping List">
+      <Stack.Screen name="Shopping List" component={CurrentList} />
+      <Stack.Screen name="ItemDetails" component={ItemDetails} options={{title: 'Item'}} />
+    </Stack.Navigator>
   )
 }
 
-function MyStack() {
+function MyFavs() {
   return (
     <Stack.Navigator>
-    <Stack.Screen name="Tabs?" component={MyTabs} />
+      <Stack.Screen name="Favorites List" component={FavoritesList} />
     </Stack.Navigator>
   )
-  
+}
+
+function MyTabs() {
+  return (
+    <Tabs.Navigator>
+      <Tabs.Screen name="Shopping List" component={MyStack} />
+      <Tabs.Screen name="Favorites List" component={MyFavs} />
+    </Tabs.Navigator>
+  )
 }
 
 export default function Nav() {
   return (
     <NavigationContainer>
-      <MyStack />
+      <MyTabs />
     </NavigationContainer>
-  );
+  )
 }
 
+//NEW NAVIGATION - FIRST DRAFT
+// function MyTabs() {
+//   return (
+//     <Tabs.Navigator>
+//       <Tabs.Screen name="Shopping List" component={CurrentList} options={{ title :"My Shopping List"}} />
+//       <Tabs.Screen name="Favorites List" component={FavoritesList} />
+//     </Tabs.Navigator>
+//   )
+// }
+
+// function MyStack() {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="Tabs?" component={MyTabs} options={{ title :"Shopping List"}} />
+//     </Stack.Navigator>
+//   )
+  
+// }
+
+// export default function Nav() {
+//   return (
+//     <NavigationContainer>
+//       <MyStack />
+//     </NavigationContainer>
+//   );
+// }
 
 
+//OLD NAVIGATION
 // const CurrentListStack = createStackNavigator({
 //     CurrentList: {
 //         screen: CurrentList,

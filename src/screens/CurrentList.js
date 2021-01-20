@@ -37,9 +37,11 @@ export default ({ navigation }) => {
                         isFavorite={index < 2}
                         onAddedSwipe={() => removeItem(item.id)}
                         onDeleteSwipe={() => removeItem(item.id)}
-                        onRowPress={() => {
-                            navigation.navigate('ItemDetails', { item })
-                        }}
+                        // onRowPress={() => {
+                        //     navigation.navigate('ItemDetails', { item: {item: item} })
+                        // }}
+                        // onRowPress={() => navigation.navigate('ItemDetails', {itemCallback: {item: item}})}
+                        onRowPress={() => navigation.navigate('ItemDetails', {itemCallback: item})}
                         />
                     )}
                     keyExtractor={(item) => item.id}
