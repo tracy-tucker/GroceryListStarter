@@ -15,7 +15,8 @@ function MyStack() {
   return (
     <Stack.Navigator initialRouteName="Shopping List">
       <Stack.Screen name="Shopping List" component={CurrentList} />
-      <Stack.Screen name="ItemDetails" component={ItemDetails} options={{title: 'Item'}} />
+      {/* <Stack.Screen name="ItemDetails" component={ItemDetails} options={{title: 'Item'}} /> */}
+      <Stack.Screen name="ItemDetails" component={ItemDetails} options={({route}) => ({ title: route.params.itemCallback.name})} />
     </Stack.Navigator>
   )
 }
