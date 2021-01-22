@@ -11,7 +11,9 @@ export default ({ navigation }) => {
         list,
         loading,
         addItem,
-        removeItem
+        removeItem,
+        addToCart,
+        cart,
     } = useCurrentList();
 
     if (loading) {
@@ -35,7 +37,7 @@ export default ({ navigation }) => {
                         name={item.name}
                         onFavoritePress={() => alert('todo: handle favorite!')}
                         isFavorite={index < 2}
-                        onAddedSwipe={() => removeItem(item.id)}
+                        onAddedSwipe={() => addToCart(item)}
                         onDeleteSwipe={() => removeItem(item.id)}
                         // onRowPress={() => {
                         //     navigation.navigate('ItemDetails', { item: {item: item} })

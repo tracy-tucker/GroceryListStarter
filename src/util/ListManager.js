@@ -9,6 +9,7 @@ const updateStoredCurrentList = (list) => {
 export const useCurrentList = () => {
     const [list, setList] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [cart, setCart] = useState([]);
 
     const addItem = (text) => {
         const newList = [{id: uuid(), name: text}, ...list];
@@ -20,6 +21,12 @@ export const useCurrentList = () => {
         const newList = list.filter(item => item.id !== id)
         setList(newList);
         updateStoredCurrentList(newList);
+    }
+
+    const addToCart = (item) => {
+        removeItem(item.id)
+        const newCart = [item, ...cart];
+        setCart(newList);   
     }
 
     useEffect(() => {
@@ -37,6 +44,8 @@ export const useCurrentList = () => {
         list,
         loading,
         addItem,
-        removeItem
+        removeItem,
+        cart,
+        addToCart
     }
 };
