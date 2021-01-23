@@ -23,7 +23,7 @@ export default ({ navigation }) => {
             </SafeAreaView>
         );
     }
-
+    console.log('cart', cart)
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <KeyboardAvoidingView

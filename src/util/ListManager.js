@@ -26,7 +26,7 @@ export const useCurrentList = () => {
     const addToCart = (item) => {
         removeItem(item.id)
         const newCart = [item, ...cart];
-        setCart(newList);   
+        setCart(newCart);   
     }
 
     useEffect(() => {
@@ -46,6 +46,6 @@ export const useCurrentList = () => {
         addItem,
         removeItem,
         cart,
-        addToCart
+        addToCart,
     }
 };
