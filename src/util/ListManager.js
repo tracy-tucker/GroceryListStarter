@@ -6,8 +6,8 @@ const updateStoredCurrentList = (list) => {
     AsyncStorage.setItem('@@GroceryList/currentList', JSON.stringify(list));
 };
 
-const updateStoredCurrentCart = (list) => {
-    AsyncStorage.setItem('@@GroceryList/currentCart', JSON.stringify(list));
+const updateStoredCurrentCart = (cart) => {
+    AsyncStorage.setItem('@@GroceryList/currentCart', JSON.stringify(cart));
 };
 
 export const useCurrentList = () => {
@@ -21,10 +21,26 @@ export const useCurrentList = () => {
         updateStoredCurrentList(newList);
     }
 
+    //ORIGINAL SETUP
+    // const removeItem = (id) => {
+    //     const newList = list.filter(item => item.id !== id)
+    //     setList(newList);
+    //     updateStoredCurrentList(newList);
+    // }
+    
     const removeItem = (id) => {
-        const newList = list.filter(item => item.id !== id)
-        setList(newList);
-        updateStoredCurrentList(newList);
+        
+        
+        if (list) {
+            const newList = list.filter(item => item.id !== id)
+            setList(newList);
+            updateStoredCurrentList(newList);
+        }
+        if (cart) {
+            const newCart = cart.filter(item => item.id !== id)
+            setCart(newCart);
+            updateStoredCurrentCart(newCart);
+        }
     }
 
     const addToCart = (item) => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, SafeAreaView, FlatList, KeyboardAvoidingView, ActivityIndicator } from 'react-native';
+import { SectionList, View, Text, SafeAreaView, FlatList, KeyboardAvoidingView, ActivityIndicator } from 'react-native';
 
-import Listitem, { Separator } from '../components/ListItem';
+import Listitem, { Separator, SectionHeader } from '../components/ListItem';
 import AddItem from '../components/AddItem';
 import { useCurrentList } from '../util/ListManager';
 
@@ -23,26 +23,28 @@ export default ({ navigation }) => {
             </SafeAreaView>
         );
     }
-    console.log('cart', cart)
+    console.log('Cart', cart)
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <KeyboardAvoidingView
                 style={{ flex: 1 }}
                 behavior="padding"
             >
-                <FlatList
-                    data={list}
-                    renderItem={({ item, index }) => (
+                <SectionList
+                    sections={[
+                        { title: 'List', data: list},
+                        { title: 'Cart', data: cart}
+                    ]}
+                    renderSectionHeader={({ section }) => (
+                        <SectionHeader title={section.title} />
+                    )}
+                    renderItem={({ item, index, list }) => (
                         <Listitem
                         name={item.name}
                         onFavoritePress={() => alert('todo: handle favorite!')}
                         isFavorite={index < 2}
                         onAddedSwipe={() => addToCart(item)}
                         onDeleteSwipe={() => removeItem(item.id)}
-                        // onRowPress={() => {
-                        //     navigation.navigate('ItemDetails', { item: {item: item} })
-                        // }}
-                        // onRowPress={() => navigation.navigate('ItemDetails', {itemCallback: {item: item}})}
                         onRowPress={() => navigation.navigate('ItemDetails', {itemCallback: item})}
                         />
                     )}

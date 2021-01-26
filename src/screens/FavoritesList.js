@@ -3,8 +3,8 @@ import { View, Text, SafeAreaView, FlatList, KeyboardAvoidingView, ActivityIndic
 
 export default () => {
     return (
-        <View>
+        <SafeAreaView>
             <Text>something about favorites</Text>
-        </View>
+        </SafeAreaView>
     )
 };

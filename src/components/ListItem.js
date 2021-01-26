@@ -80,6 +80,15 @@ const RightActions = (progress, dragX) => {
     );
 }
 
+export const SectionHeader = ({ title }) => {
+    return (
+        <View style={[styles.container]}>
+        <Text>{title}</Text>
+    </View>
+    )
+    
+}
+
 const Listitem = ({ name, onFavoritePress, isFavorite, onAddedSwipe, onDeleteSwipe, onRowPress }) => {
     let starIcon;
 
