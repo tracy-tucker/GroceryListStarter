@@ -29,8 +29,6 @@ export const useCurrentList = () => {
     // }
     
     const removeItem = (id) => {
-        
-        
         if (list) {
             const newList = list.filter(item => item.id !== id)
             setList(newList);
