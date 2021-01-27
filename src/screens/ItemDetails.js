@@ -4,10 +4,9 @@ import { StyleSheet, View, Text } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         padding: 20,
-        flexDirection: 'row',
+        flexDirection: 'column',
         backgroundColor: '#fff',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'flex-start',
     },
     text: {
         fontSize: 18,
@@ -18,7 +17,8 @@ const styles = StyleSheet.create({
 export default ({ route, navigation }) => (
     <View style={styles.container}>
         <Text>Item Details:</Text>
-        <Text>{route.params.itemCallback.id}</Text>
+        <Text>NAME: {route.params.itemCallback.name}</Text>
+        <Text>ID: {route.params.itemCallback.id}</Text>
     </View>
     
 );

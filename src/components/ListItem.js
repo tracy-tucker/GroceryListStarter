@@ -122,7 +122,7 @@ const Listitem = ({ name, onFavoritePress, isFavorite, onAddedSwipe, onDeleteSwi
                                 source={starIcon}
                                 style={styles.icon}
                                 resizeMode="contain"
-                            />
+                            /> 
                         </TouchableOpacity>
                     )}
                 </View>
